@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>All results</title>
+</head>
+<body>
+    <div th:if="not ${wszystkieSklepy.isEmpty()}">
+        <h1>All registered times:</h1>
+        <table border="1">
+            <tr>
+                <th>Nazwa</th>
+                <th>Miasto</th>
+                <th>Ulica</th>
+                <th>Numer budynku</th>
+            </tr>
+            <tr th:each="sklep: ${wszystkieSklepy}" th:object="${sklep}">
+                <td><a th:href="@{'/sklep/'+${sklep.id}}" th:text="*{nazwa}"></a></td>
+                <td th:text="*{miasto}"></td>
+                <td th:text="*{ulica}"></td>
+                <td th:text="*{nrBudynku}"></td>
+            </tr>
+
+        </table>
+    </div>
+    <div th:if="${wszystkieSklepy.isEmpty()}">
+        <h1>There is no data yet :(</h1>
+    </div>
+</body>
+</html>

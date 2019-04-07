@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace=" basic_template :: head"></head>
+<body>
+    <h1>Time registration</h1>
+    <form action="#" method="post" th:action="@{/save}" th:object="${sklep}">
+        <p>Nazwa: <input type="text" th:field="*{nazwa}" /></p>
+        <p>Miasto: <input type="text" th:field="*{miasto}" /></p>
+        <p>Ulica: <input type="text" th:field="*{ulica}" /></p>
+        <p>Nr Budynku: <input type="text" th:field="*{nrBudynku}" /></p>
+
+	    <input type="submit" value="Save" />
+    </form>
+    <a th:href="@{/show}">Pokaz wszystkie sklepy</a>
+</body>
+</html>
